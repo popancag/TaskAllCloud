@@ -1,0 +1,33 @@
+
+<template>
+    <lightning-card>
+        <div class="slds-align_absolute-center">
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+        </div>
+        <template lwc:if={error}>
+            <div class="slds-align_absolute-center slds-grid slds-gutters divWidth">
+                <div class="slds-col">
+                    <lightning-icon icon-name="utility:error" alternative-text={labels.titleErrorLabel}
+                        title={labels.titleErrorLabel}>
+                    </lightning-icon>
+                </div>
+                <div class="slds-col">
+                    <h1>{labels.errorCityLabel}</h1>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <div>
+                <lightning-layout multiple-rows="true">
+                    <template for:each={items} for:item="item" for:index="index">
+                        <lightning-layout-item key={item.Id} size="2" padding="around-large">
+                            <c-weather-tile item={item}></c-weather-tile>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card variant="narrow">
+        <div class="slds-text-align_center">
+            <h3 class="slds-text-heading_small" title={item.dayOfWeek}>{item.dayOfWeek}</h3>
+            <img src={item.icon} alt="Weather Image" />
+            <div class="slds-p-around_medium">
+                <p class="slds-text-title">{item.condition}</p>
+                <p class="slds-text-title">Min: {item.minTemp}°C | Max: {item.maxTemp}°C</p>
+            </div>
+        </div>
+    </lightning-card>
+</template>
